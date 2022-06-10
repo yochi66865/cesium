@@ -1,0 +1,167 @@
+[2022-06-10 14:43:17Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'Credentials': 'C:\WS\gitlab\basic-angular\actions-runner\.credentials'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'Runner': 'C:\WS\gitlab\basic-angular\actions-runner\.runner'
+[2022-06-10 14:43:17Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2022-06-10 14:43:17Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.19044.
+[2022-06-10 14:43:17Z INFO Listener] Version: 2.292.0
+[2022-06-10 14:43:17Z INFO Listener] Commit: d4b794dd645e16990ae0530bf977e26ab24be9d9
+[2022-06-10 14:43:17Z INFO Listener] Culture: he-IL
+[2022-06-10 14:43:17Z INFO Listener] UI Culture: he-IL
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO Listener] Validating directory permissions for: 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO CommandLineParser] Parse
+[2022-06-10 14:43:17Z INFO CommandLineParser] Parsing 1 args
+[2022-06-10 14:43:17Z INFO CommandLineParser] parsing argument
+[2022-06-10 14:43:17Z INFO CommandLineParser] HasArgs: False
+[2022-06-10 14:43:17Z INFO CommandLineParser] Adding Command: run
+[2022-06-10 14:43:17Z INFO Listener] Arguments parsed
+[2022-06-10 14:43:17Z INFO Runner] ExecuteCommand
+[2022-06-10 14:43:17Z INFO ConfigurationStore] currentAssemblyLocation: C:\WS\gitlab\basic-angular\actions-runner\bin\Runner.Listener.dll
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] binPath: C:\WS\gitlab\basic-angular\actions-runner\bin
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] RootFolder: C:\WS\gitlab\basic-angular\actions-runner
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'Runner': 'C:\WS\gitlab\basic-angular\actions-runner\.runner'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] ConfigFilePath: C:\WS\gitlab\basic-angular\actions-runner\.runner
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'Credentials': 'C:\WS\gitlab\basic-angular\actions-runner\.credentials'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] CredFilePath: C:\WS\gitlab\basic-angular\actions-runner\.credentials
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\WS\gitlab\basic-angular\actions-runner\.credentials_migrated'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] MigratedCredFilePath: C:\WS\gitlab\basic-angular\actions-runner\.credentials_migrated
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'Service': 'C:\WS\gitlab\basic-angular\actions-runner\.service'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] ServiceConfigFilePath: C:\WS\gitlab\basic-angular\actions-runner\.service
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'help': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'version': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'commit': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'check': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Command 'configure': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Command 'remove': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Command 'warmup': 'False'
+[2022-06-10 14:43:17Z INFO ConfigurationManager] LoadSettings
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured()
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured: True
+[2022-06-10 14:43:17Z INFO ConfigurationManager] Is configured: True
+[2022-06-10 14:43:17Z INFO ConfigurationStore] Read setting file: 303 chars
+[2022-06-10 14:43:17Z INFO ConfigurationManager] Settings Loaded
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-06-10 14:43:17Z INFO CommandSettings] Command 'run': 'True'
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured()
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured: True
+[2022-06-10 14:43:17Z INFO ConfigurationManager] Is configured: True
+[2022-06-10 14:43:17Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2022-06-10 14:43:17Z INFO Runner] Set runner startup type - Manual
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'once': 'False'
+[2022-06-10 14:43:17Z INFO CommandSettings] Flag 'once': 'False'
+[2022-06-10 14:43:17Z INFO Runner] RunAsync
+[2022-06-10 14:43:17Z INFO ConfigurationManager] LoadSettings
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured()
+[2022-06-10 14:43:17Z INFO ConfigurationStore] IsConfigured: True
+[2022-06-10 14:43:17Z INFO ConfigurationManager] Is configured: True
+[2022-06-10 14:43:17Z INFO ConfigurationManager] Settings Loaded
+[2022-06-10 14:43:17Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "angular-runner",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/uwttCmEHVnCYkYY0bfVKmOEwi8tUpMgvUWKAREpDyRZCg57vGt",
+  "GitHubUrl": "https://github.com/yochi66865/basic-angular",
+  "WorkFolder": "_work"
+}
+[2022-06-10 14:43:17Z INFO MessageListener] Loading Credentials
+[2022-06-10 14:43:17Z INFO ConfigurationStore] HasCredentials()
+[2022-06-10 14:43:17Z INFO ConfigurationStore] stored True
+[2022-06-10 14:43:17Z INFO CredentialManager] GetCredentialProvider
+[2022-06-10 14:43:17Z INFO CredentialManager] Creating type OAuth
+[2022-06-10 14:43:17Z INFO CredentialManager] Creating credential type: OAuth
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:17Z INFO HostContext] Well known directory 'Root': 'C:\WS\gitlab\basic-angular\actions-runner'
+[2022-06-10 14:43:17Z INFO HostContext] Well known config file 'RSACredentials': 'C:\WS\gitlab\basic-angular\actions-runner\.credentials_rsaparams'
+[2022-06-10 14:43:17Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\WS\gitlab\basic-angular\actions-runner\.credentials_rsaparams
+[2022-06-10 14:43:18Z INFO MessageListener] Attempt to create session.
+[2022-06-10 14:43:18Z INFO MessageListener] Connecting to the Runner Server...
+[2022-06-10 14:43:18Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2022-06-10 14:43:18Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-06-10 14:43:18Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-06-10 14:43:18Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-06-10 14:43:18Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-06-10 14:43:18Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-06-10 14:43:19Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-06-10 14:43:19Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-06-10 14:43:19Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-06-10 14:43:19Z INFO MessageListener] VssConnection created
+[2022-06-10 14:43:19Z INFO Terminal] WRITE LINE: 
+[2022-06-10 14:43:19Z INFO Terminal] WRITE LINE: 
+[2022-06-10 14:43:19Z WARN GitHubActionsService] Authentication failed with status code 401.
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+Strict-Transport-Security: max-age=2592000
+X-TFS-ProcessId: 07655760-0234-46d3-b94a-8bdb133124ec
+ActivityId: dedd6c81-d9c1-4d96-96ef-b17ce23bd4c3
+X-TFS-Session: 320b6d80-965c-4462-ae53-cbd2e6f32829
+X-VSS-E2EID: f2b712e0-b962-4ac7-a87a-b982ef0afb49
+X-VSS-SenderDeploymentId: fc1cfc90-fc40-edcb-6d0f-3b1380ee7b68
+X-TFS-ServiceError: The+user+%27System%3aPublicAccess%3baaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa%27+is+not+authorized+to+access+this+resource.
+X-VSS-S2STargetService: 0000005A-0000-8888-8000-000000000000/visualstudio.com
+X-Cache: CONFIG_NOCACHE
+X-MSEdge-Ref: Ref A: E2E26C4340B14211BFA8E71801F6CE7B Ref B: TLV30EDGE0416 Ref C: 2022-06-10T14:43:20Z
+Date: Fri, 10 Jun 2022 14:43:19 GMT
+
+[2022-06-10 14:43:20Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\WS\gitlab\basic-angular\actions-runner\.credentials_rsaparams
+[2022-06-10 14:43:20Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\WS\gitlab\basic-angular\actions-runner\.credentials_rsaparams
+[2022-06-10 14:43:20Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-06-10 14:43:21Z INFO MessageListener] Session created.
+[2022-06-10 14:43:21Z INFO Terminal] WRITE LINE: Current runner version: '2.292.0'
+[2022-06-10 14:43:21Z INFO Terminal] WRITE LINE: 2022-06-10 14:43:21Z: Listening for Jobs
+[2022-06-10 14:43:21Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2022-06-10 14:43:24Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\WS\gitlab\basic-angular\actions-runner\.credentials_rsaparams
+[2022-06-10 14:43:24Z INFO MessageListener] Message '1' received from session '8f92503a-24cb-4314-8e32-4c1bd96b233c'.
+[2022-06-10 14:43:24Z INFO Runner] Received job message of length 21235 from service, with hash '53e81f7a178da3fc1a3f1788a8e10613935cb249c133e5aced366322010e4a60'
+[2022-06-10 14:43:25Z INFO JobDispatcher] Job request 1 for plan 7719ca03-acd3-4544-8a53-1861e98ad147 job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4 received.
+[2022-06-10 14:43:25Z INFO JobDispatcher] Pull OrchestrationId 7719ca03-acd3-4544-8a53-1861e98ad147.build._14_x from JWT claims
+[2022-06-10 14:43:25Z INFO Terminal] WRITE LINE: 2022-06-10 14:43:25Z: Running job: build (14.x)
+[2022-06-10 14:43:25Z INFO JobDispatcher] Start renew job request 1 for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-06-10 14:43:25Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:53:25
+[2022-06-10 14:43:25Z INFO HostContext] Well known directory 'Bin': 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper] Starting process:
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   File name: 'C:\WS\gitlab\basic-angular\actions-runner\bin\Runner.Worker.exe'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2132 2144'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Working directory: 'C:\WS\gitlab\basic-angular\actions-runner\bin'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-06-10 14:43:25Z INFO ProcessInvokerWrapper] Process started with process id 6508, waiting for process exit.
+[2022-06-10 14:43:25Z INFO JobDispatcher] Send job request message to worker for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-06-10 14:43:26Z INFO ProcessChannel] Sending message of length 21235, with hash '53e81f7a178da3fc1a3f1788a8e10613935cb249c133e5aced366322010e4a60'
+[2022-06-10 14:43:26Z INFO JobNotification] Entering JobStarted Notification
+[2022-06-10 14:43:26Z INFO JobNotification] Entering StartMonitor
+[2022-06-10 14:44:26Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:54:26
+[2022-06-10 14:45:26Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:55:26
+[2022-06-10 14:46:27Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:56:27
+[2022-06-10 14:47:27Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:57:28
+[2022-06-10 14:48:28Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:58:28
+[2022-06-10 14:49:28Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 14:59:28
+[2022-06-10 14:50:29Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:00:29
+[2022-06-10 14:51:29Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:01:29
+[2022-06-10 14:52:29Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:02:29
+[2022-06-10 14:53:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:03:30
+[2022-06-10 14:54:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:04:30
+[2022-06-10 14:55:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:05:31
+[2022-06-10 14:56:31Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 10/06/2022 15:06:31

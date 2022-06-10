@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "angular-runner",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/uwttCmEHVnCYkYY0bfVKmOEwi8tUpMgvUWKAREpDyRZCg57vGt",
+  "gitHubUrl": "https://github.com/yochi66865/basic-angular",
+  "workFolder": "_work"
+}
