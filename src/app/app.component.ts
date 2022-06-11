@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,6 @@ export class AppComponent {
 
   name = 'yochi';
   animal = 'dog';
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
   title = 'basic-angular';
 }
