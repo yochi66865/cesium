@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "basic-angular": {
+    "cesium": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,20 +20,26 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/basic-angular",
+            "outputPath": "dist/cesium",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.less"
-            ],
-            "scripts": []
+              {
+               "glob": "**/*",
+               "input": "../node_modules/cesium/Build/Cesium",
+               "output": "./assets/cesium"
+              },
+              "src/assets",
+              "src/favicon.ico"
+             ],
+             "styles": [
+               "node_modules/cesium/Build/Cesium/Widgets/widgets.css",
+               "src/styles.less"
+             ],
+             "scripts": ["node_modules/cesium/Build/Cesium/Cesium.js"]
           },
           "configurations": {
             "production": {
@@ -72,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "basic-angular:build:production"
+              "browserTarget": "cesium:build:production"
             },
             "development": {
-              "browserTarget": "basic-angular:build:development"
+              "browserTarget": "cesium:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "basic-angular:build"
+            "browserTarget": "cesium:build"
           }
         },
         "test": {
@@ -107,5 +113,5 @@
       }
     }
   },
-  "defaultProject": "basic-angular"
+  "defaultProject": "cesium"
 }

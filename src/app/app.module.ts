@@ -8,11 +8,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CesiumComponent } from './cesium/cesium.component';
+import { CesiumDirective } from './cesium/cesium.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent, CesiumComponent, CesiumDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,9 +20,9 @@ import { AppComponent } from './app.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
