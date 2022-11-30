@@ -13,19 +13,16 @@ export class CesiumDirective implements OnInit {
 
   ngOnInit() {
     const viewer = new Cesium.Viewer(this.el.nativeElement, {
-      terrainProvider: Cesium.createWorldTerrain(),
+      infoBox: true,
+      shouldAnimate: true,
+      baseLayerPicker: true,
     });
-    //   const buildingTileset = viewer.scene.primitives.add(
-    //     Cesium.createOsmBuildings()
-    //   );
+    const buildingTileset = viewer.scene.primitives.add(
+      Cesium.createOsmBuildings()
+    );
 
-    //   // {"DD":{"lat":31.41173,"lng":35.08182},
-    //   viewer.camera.flyTo({
-    //     destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173),
-    //     orientation: {
-    //       heading: Cesium.Math.toRadians(0.0),
-    //       pitch: Cesium.Math.toRadians(-15.0),
-    //     },
-    //   });
+    viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173, 300000),
+    });
   }
 }

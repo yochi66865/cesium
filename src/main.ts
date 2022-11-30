@@ -12,4 +12,4 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((err) => console.error(err));
 
-(window as any)['CESIUM_BASE_URL'] = '.assets/cesium/';
+(window as any)['CESIUM_BASE_URL'] = '/assets/cesium/';
