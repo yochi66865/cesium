@@ -6,6 +6,8 @@
     "baseUrl": "./",
     "outDir": "./dist/cesium",
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

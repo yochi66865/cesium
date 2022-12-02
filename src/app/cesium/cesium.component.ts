@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./cesium.component.less'],
 })
 export class CesiumComponent {
-  g: any;
   constructor() {}
 }

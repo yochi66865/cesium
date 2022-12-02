@@ -5,14 +5,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CesiumComponent } from './cesium/cesium.component';
 import { CesiumDirective } from './cesium/cesium.directive';
+import { ShopsComponent } from './shops/shops.component';
+import { ShopComponent } from './shops/shop/shop.component';
 
 @NgModule({
-  declarations: [AppComponent, CesiumComponent, CesiumDirective],
+  declarations: [
+    AppComponent,
+    CesiumComponent,
+    CesiumDirective,
+    ShopsComponent,
+    ShopComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +30,7 @@ import { CesiumDirective } from './cesium/cesium.directive';
     MatInputModule,
     BrowserAnimationsModule,
     DragDropModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
