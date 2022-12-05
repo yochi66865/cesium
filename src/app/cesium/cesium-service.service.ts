@@ -1,5 +1,6 @@
 import { ElementRef, Injectable } from '@angular/core';
 import * as Cesium from 'cesium';
+import { Shop } from '../model/shop.model';
 
 const CESIUM_TOKEN =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNDViODRjMi1jNDNmLTRiMjUtOWE3Ny01MTE1MGEzMTk2MjMiLCJpZCI6MTE2NDY2LCJpYXQiOjE2Njk3MjY3Mzh9.8gaTQPKhD9KvyBwPU0sM3zHrBBdYq9jHfdGlFN0Cpmw';
@@ -50,13 +51,14 @@ export class CesiumService {
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   }
 
-  addEntityToMap() {
+  addEntityToMap(newEntity: Shop) {
     var url = Cesium.buildModuleUrl('../../assets/icons/store.png');
     var billboard = this.viewer.entities.add({
+      id: newEntity.id,
       position: new Cesium.Cartesian3(
-        4453990.616829075,
-        3108958.644817535,
-        3331989.255811629
+        newEntity?.coordinates?.x,
+        newEntity?.coordinates?.y,
+        newEntity?.coordinates?.z
       ),
       billboard: {
         image: url,
@@ -64,5 +66,7 @@ export class CesiumService {
     });
   }
 
-  removeEntityFromMap() {}
+  removeEntityFromMap(entityId: string) {
+    this.viewer.entities.removeById(entityId);
+  }
 }

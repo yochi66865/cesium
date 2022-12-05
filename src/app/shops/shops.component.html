@@ -1,1 +1,1 @@
-<shop *ngFor="let shopItem of shops" [shop]="shopItem"></shop>
+<shop *ngFor="let shopItem of shops;let index = index" [shop]="shopItem" (toggleShop)="toggleShop(index)"></shop>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Shop } from 'src/app/model/shop.model';
 
 @Component({
@@ -8,8 +8,13 @@ import { Shop } from 'src/app/model/shop.model';
 })
 export class ShopComponent implements OnInit {
   @Input() shop: Shop = {};
+  @Output() toggleShop: EventEmitter<void> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleShopEvent() {
+    this.toggleShop.emit();
+  }
 }
