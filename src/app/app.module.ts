@@ -10,18 +10,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CesiumComponent } from './cesium/cesium.component';
-import { CesiumDirective } from './cesium/cesium.directive';
 import { ShopsComponent } from './shops/shops.component';
 import { ShopComponent } from './shops/shop/shop.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CesiumComponent,
-    CesiumDirective,
-    ShopsComponent,
-    ShopComponent,
-  ],
+  declarations: [AppComponent, CesiumComponent, ShopsComponent, ShopComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
