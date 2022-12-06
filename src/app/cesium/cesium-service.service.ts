@@ -22,6 +22,7 @@ export class CesiumService {
     Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
     this.viewer = new Cesium.Viewer(el.nativeElement, {
+      sceneMode: Cesium.SceneMode.SCENE3D,
       imageryProvider: Cesium.createWorldImagery({
         style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
       }),
@@ -54,7 +55,7 @@ export class CesiumService {
 
   addEntityToMap(newEntity: Shop) {
     var url = Cesium.buildModuleUrl('../../assets/icons/store.png');
-    var billboard = this.viewer.entities.add({
+    const entity: Cesium.Entity.ConstructorOptions = {
       id: newEntity.id,
       position: new Cesium.Cartesian3(
         newEntity?.coordinates?.x,
@@ -63,11 +64,43 @@ export class CesiumService {
       ),
       billboard: {
         image: url,
+        scale: 0.5,
+        color: Cesium.Color.RED,
       },
+    };
+    var billboard = this.viewer.entities.add({
+      ...entity,
     });
+    // this.hoverOnEntity(entity);
   }
 
   removeEntityFromMap(entityId: string) {
     this.viewer.entities.removeById(entityId);
+  }
+
+  hoverOnEntity(entity: Cesium.Entity.ConstructorOptions) {
+    const handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
+    handler.setInputAction((movement: any) => {
+      const pickedObject = this.scene.pick(movement.endPosition);
+      if (Cesium.defined(pickedObject) && pickedObject.id === entity.id) {
+        entity = {
+          ...entity,
+          billboard: {
+            ...(entity.billboard ?? {}),
+            scale: 2.0,
+            color: Cesium.Color.YELLOW,
+          },
+        };
+      } else {
+        entity = {
+          ...entity,
+          billboard: {
+            ...(entity.billboard ?? {}),
+            scale: 0.5,
+            color: Cesium.Color.WHITE,
+          },
+        };
+      }
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   }
 }
