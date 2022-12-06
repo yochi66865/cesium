@@ -11,6 +11,7 @@ Cesium.Ion.defaultAccessToken = CESIUM_TOKEN;
 })
 export class CesiumService {
   viewer!: Cesium.Viewer;
+  scene!: Cesium.Scene;
 
   constructor() {}
 
@@ -20,7 +21,7 @@ export class CesiumService {
     Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
     Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
-    const viewer = new Cesium.Viewer(el.nativeElement, {
+    this.viewer = new Cesium.Viewer(el.nativeElement, {
       imageryProvider: Cesium.createWorldImagery({
         style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
       }),
@@ -30,21 +31,21 @@ export class CesiumService {
       selectionIndicator: false,
     });
 
-    const scene = viewer.scene;
+    this.scene = this.viewer.scene;
 
-    if (!scene.pickPositionSupported) {
+    if (!this.scene.pickPositionSupported) {
       window.alert('This browser does not support pickPosition.');
     }
 
-    viewer.camera.flyTo({
+    this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173, 300000),
     });
 
-    const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-    handler.setInputAction(function (click: any) {
-      const cartesian = viewer.camera.pickEllipsoid(
+    const handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
+    handler.setInputAction((click: any) => {
+      const cartesian = this.viewer.camera.pickEllipsoid(
         click.position,
-        scene.globe.ellipsoid
+        this.scene.globe.ellipsoid
       );
 
       console.log('cartesian', cartesian);

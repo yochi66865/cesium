@@ -10,10 +10,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers } from './app-reducer-map';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CesiumEffects } from './cesium-state/effects';
+import { cesiumReducer } from './cesium-state/reducer';
 import { CesiumComponent } from './cesium/cesium.component';
 import { ShopComponent } from './shops/shop/shop.component';
 import { ShopsComponent } from './shops/shops.component';
@@ -29,7 +29,9 @@ import { ShopsComponent } from './shops/shops.component';
     BrowserAnimationsModule,
     DragDropModule,
     MatIconModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('cesium', cesiumReducer),
+
     EffectsModule.forRoot([CesiumEffects]),
     StoreDevtoolsModule.instrument(),
   ],
