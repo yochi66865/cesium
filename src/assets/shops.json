@@ -2,25 +2,29 @@
     {
         "id": "111",
         "name": "shop1",
-        "address": "Israel",
-        "coordinates": {"x": 4453990.616829075, "y": 3108958.644817535, "z": 3331989.255811629} 
+        "city": "Ashdod",
+        "address": "Shderot Bnei Brit",
+        "coordinates": {"x": 4463335.28810235, "y": 3085305.6733755213, "z": 3341393.8268000875} 
     },
     {
         "id": "222",
         "name": "shop2",
-        "address": "Israel",
-        "coordinates": {"x": 4488151.401495415, "y": 3142568.5861100378, "z": 3254231.071272553}
+        "city": "Beer Sheva",
+        "address": "Keren Hiesod",
+        "coordinates": {"x": 4481753.635793454, "y": 3114942.21347764, "z": 3289185.0199353206}
     },
     {
         "id": "333",
         "name": "shop3",
-        "address": "Israel",
-        "coordinates": {"x": 4417073.427762135, "y": 3148017.867892202, "z": 3344353.179754934}
+        "city": "Jerushalem",
+        "address": "Golda Meir",
+        "coordinates": {"x": 4432756.004305849, "y": 3129037.5212492244, "z": 3341434.16485854}
     },
     {
         "id": "444",
         "name": "shop4",
-        "address": "Israel",
-        "coordinates": {"x": 4390202.193128219, "y": 3084857.3325250894, "z": 3436686.281747543}
+        "city": "Haifa",
+        "address": "Shderot Hameginim",
+        "coordinates": {"x": 4395242.44700432, "y": 3077164.8584522842, "z": 3437137.1859518536}
     }
 ]

@@ -41,6 +41,8 @@ export class CesiumService {
     this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173, 300000),
     });
+
+    this.clickOnMap();
   }
 
   addEntityToMap(newEntity: Shop) {
@@ -51,10 +53,13 @@ export class CesiumService {
         show: false,
         showBackground: true,
         font: '18px ariel',
+        style: 0,
         horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
         pixelOffset: new Cesium.Cartesian2(15, 0),
-        text: `name store is ${newEntity.name}`,
+        text: `${newEntity.name} : ${newEntity.address}, ${newEntity.city} `,
+        fillColor: new Cesium.ConstantProperty(Cesium.Color.BLACK),
+        backgroundColor: new Cesium.ConstantProperty(Cesium.Color.WHITE),
       },
       position: new Cesium.Cartesian3(x, y, z),
       billboard: {
@@ -79,7 +84,9 @@ export class CesiumService {
         this.scene.globe.ellipsoid
       );
 
-      console.log('cartesian', cartesian);
+      console.log(
+        `cartesian,: "x": ${cartesian?.x}, "y": ${cartesian?.y}, "z": ${cartesian?.z}`
+      );
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   }
 
