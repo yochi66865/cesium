@@ -41,7 +41,37 @@ export class CesiumService {
     this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173, 300000),
     });
+  }
 
+  addEntityToMap(newEntity: Shop) {
+    const { x, y, z } = newEntity.coordinates ?? {};
+    const entity = this.viewer.entities.add({
+      id: newEntity.id,
+      label: {
+        show: false,
+        showBackground: true,
+        font: '18px ariel',
+        horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        pixelOffset: new Cesium.Cartesian2(15, 0),
+        text: `name store is ${newEntity.name}`,
+      },
+      position: new Cesium.Cartesian3(x, y, z),
+      billboard: {
+        image: '../../assets/icons/store.png',
+        scale: new Cesium.ConstantProperty(0.5),
+        color: new Cesium.ConstantProperty(Cesium.Color.BLACK),
+      },
+    });
+
+    this.hoverOnEntity(entity);
+  }
+
+  removeEntityFromMap(entityId: string) {
+    this.viewer.entities.removeById(entityId);
+  }
+
+  clickOnMap() {
     const handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
     handler.setInputAction((click: any) => {
       const cartesian = this.viewer.camera.pickEllipsoid(
@@ -53,53 +83,32 @@ export class CesiumService {
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   }
 
-  addEntityToMap(newEntity: Shop) {
-    var url = Cesium.buildModuleUrl('../../assets/icons/store.png');
-    const entity: Cesium.Entity.ConstructorOptions = {
-      id: newEntity.id,
-      position: new Cesium.Cartesian3(
-        newEntity?.coordinates?.x,
-        newEntity?.coordinates?.y,
-        newEntity?.coordinates?.z
-      ),
-      billboard: {
-        image: url,
-        scale: 0.5,
-        color: Cesium.Color.RED,
-      },
-    };
-    var billboard = this.viewer.entities.add({
-      ...entity,
-    });
-    // this.hoverOnEntity(entity);
-  }
-
-  removeEntityFromMap(entityId: string) {
-    this.viewer.entities.removeById(entityId);
-  }
-
   hoverOnEntity(entity: Cesium.Entity.ConstructorOptions) {
-    const handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
+    let handler;
+    // If the mouse is over the billboard, change its scale and color
+    handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
     handler.setInputAction((movement: any) => {
       const pickedObject = this.scene.pick(movement.endPosition);
-      if (Cesium.defined(pickedObject) && pickedObject.id === entity.id) {
-        entity = {
-          ...entity,
-          billboard: {
-            ...(entity.billboard ?? {}),
-            scale: 2.0,
-            color: Cesium.Color.YELLOW,
-          },
-        };
+      if (!entity.billboard) {
+        entity.billboard = new Cesium.BillboardGraphics({});
+      }
+
+      if (Cesium.defined(pickedObject) && pickedObject.id === entity) {
+        entity.billboard.scale = new Cesium.ConstantProperty(1.0);
+        entity.billboard.color = new Cesium.ConstantProperty(
+          Cesium.Color.YELLOW
+        );
+        if (entity.label) {
+          entity.label.show = true;
+        }
       } else {
-        entity = {
-          ...entity,
-          billboard: {
-            ...(entity.billboard ?? {}),
-            scale: 0.5,
-            color: Cesium.Color.WHITE,
-          },
-        };
+        entity.billboard.scale = new Cesium.ConstantProperty(0.5);
+        entity.billboard.color = new Cesium.ConstantProperty(
+          Cesium.Color.BLACK
+        );
+        if (entity.label) {
+          entity.label.show = false;
+        }
       }
     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   }
