@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { CesiumEffects } from '../cesium-state/effects';
+import { cesiumReducer } from '../cesium-state/reducer';
+import { ShopComponent } from './shop/shop.component';
 import { ShopsComponent } from './shops.component';
 
 describe('ShopsComponent', () => {
@@ -8,9 +12,14 @@ describe('ShopsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShopsComponent ]
-    })
-    .compileComponents();
+      declarations: [ShopsComponent, ShopComponent],
+      imports: [
+        StoreModule.forRoot({}),
+        StoreModule.forFeature('cesium', cesiumReducer),
+
+        EffectsModule.forRoot([CesiumEffects]),
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

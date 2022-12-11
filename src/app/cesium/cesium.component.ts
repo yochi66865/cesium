@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { CesiumService } from './cesium-service.service';
+import { CesiumService } from '../services/cesium-service.service';
 
 @Component({
   selector: 'app-cesium',

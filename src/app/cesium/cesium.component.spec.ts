@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CesiumService } from '../services/cesium-service.service';
 import { CesiumComponent } from './cesium.component';
 
 describe('CesiumComponent', () => {
   let component: CesiumComponent;
   let fixture: ComponentFixture<CesiumComponent>;
+  let cesiumService: CesiumService = new CesiumService();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,6 +14,7 @@ describe('CesiumComponent', () => {
   });
 
   beforeEach(() => {
+    (window as any)['CESIUM_BASE_URL'] = '/assets/cesium/';
     fixture = TestBed.createComponent(CesiumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

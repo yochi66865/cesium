@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import { CesiumService } from '../cesium/cesium-service.service';
+import { CesiumService } from '../services/cesium-service.service';
 import {
   addEntityToMap,
   removeEntityFromMap,

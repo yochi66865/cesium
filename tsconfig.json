@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types": ["cesium"],
+    "types": ["cesium", "jest"],
     "baseUrl": "./",
     "outDir": "./dist/cesium",
     "forceConsistentCasingInFileNames": true,
