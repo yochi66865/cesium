@@ -1,14 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-import { Cartesian3, Cartesian4 } from 'cesium';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Cartesian3, Cartesian4, IonImageryProvider } from 'cesium';
 import * as Cesium from 'cesium';
 import { CesiumService } from './cesium-service.service';
+import { ElementRef } from '@angular/core';
+import { CesiumComponent } from '../cesium/cesium.component';
 
 describe('CesiumServiceService', () => {
   let service: CesiumService;
+  let component: CesiumComponent;
+  let fixture: ComponentFixture<CesiumComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      declarations: [CesiumComponent],
+    }).compileComponents();
+    (window as any)['CESIUM_BASE_URL'] = '/assets/cesium/';
+
     service = TestBed.inject(CesiumService);
+    fixture = TestBed.createComponent(CesiumComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should be created', () => {
@@ -25,8 +36,33 @@ describe('CesiumServiceService', () => {
     });
   });
 
-  it('should initial cesium', function () {
-    console.log('DEFAULT_VIEW_RECTANGLE', Cesium.Camera.DEFAULT_VIEW_RECTANGLE);
+  fit('should initial cesium', function () {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const nativeElement = compiled.querySelector('.cesium-map');
+    const testElement: ElementRef = { nativeElement };
+    const insantiateSpy = spyOn(service, 'initialCesium');
+    service.initialCesium(testElement);
+    expect(service.viewer).toBeTruthy();
+
+    expect(
+      service.viewer.imageryLayers.get(0).imageryProvider.requestImage.prototype
+    ).toBeTruthy();
+
+    // this.viewer = new Cesium.Viewer(el.nativeElement, {
+    //   imageryProvider: Cesium.createWorldImagery({
+    //     style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
+    //   }),
+    //   infoBox: false,
+    //   shouldAnimate: true,
+    //   baseLayerPicker: true,
+    //   selectionIndicator: false,
+    // });
+
+    //     x: 20037508.342789244 , y: 20037508.342789244
+    // _rectangleSouthwestInMeters
+    // :
+    // Cartesian2
+    // x:  -20037508.342789244,  y: -20037508.342789244
   });
 });
 

@@ -38,12 +38,14 @@
     "@types/jasmine": "~3.8.0",
     "@types/jest": "^29.2.4",
     "@types/node": "^12.11.1",
+    "@types/testing-library__jest-dom": "^5.14.5",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-spec-reporter": "^0.0.35",
     "typescript": "~4.3.2"
   }
 }

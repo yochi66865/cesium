@@ -5,6 +5,13 @@ import { Shop } from '../model/shop.model';
 const CESIUM_TOKEN =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNDViODRjMi1jNDNmLTRiMjUtOWE3Ny01MTE1MGEzMTk2MjMiLCJpZCI6MTE2NDY2LCJpYXQiOjE2Njk3MjY3Mzh9.8gaTQPKhD9KvyBwPU0sM3zHrBBdYq9jHfdGlFN0Cpmw';
 Cesium.Ion.defaultAccessToken = CESIUM_TOKEN;
+Cesium.Camera.DEFAULT_VIEW_RECTANGLE = Cesium.Rectangle.fromDegrees(
+  380.0,
+  380.0,
+  38.0,
+  38.0
+);
+Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +23,6 @@ export class CesiumService {
   constructor() {}
 
   initialCesium(el: ElementRef) {
-    var extent = Cesium.Rectangle.fromDegrees(380.0, 380.0, 38.0, 38.0);
-
-    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
-    Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
-
     this.viewer = new Cesium.Viewer(el.nativeElement, {
       sceneMode: Cesium.SceneMode.SCENE3D,
       imageryProvider: Cesium.createWorldImagery({
@@ -39,7 +41,8 @@ export class CesiumService {
     }
 
     this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(35.08182, 31.41173, 300000),
+      duration: 0,
+      destination: Cesium.Cartesian3.fromRadians(0.6, 0.55, 690000),
     });
 
     this.clickOnMap();

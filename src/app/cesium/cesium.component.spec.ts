@@ -5,7 +5,6 @@ import { CesiumComponent } from './cesium.component';
 describe('CesiumComponent', () => {
   let component: CesiumComponent;
   let fixture: ComponentFixture<CesiumComponent>;
-  let cesiumService: CesiumService = new CesiumService();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
