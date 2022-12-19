@@ -1,15 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Cartesian3, Cartesian4, IonImageryProvider } from 'cesium';
+import { JulianDate } from 'cesium';
 import * as Cesium from 'cesium';
 import { CesiumService } from './cesium-service.service';
 import { ElementRef } from '@angular/core';
 import { CesiumComponent } from '../cesium/cesium.component';
+import { Shop } from '../model/shop.model';
 
 describe('CesiumServiceService', () => {
   let service: CesiumService;
   let component: CesiumComponent;
   let fixture: ComponentFixture<CesiumComponent>;
-
+  let compiled: HTMLElement;
+  let nativeElement: Element | null;
+  let testElement: ElementRef;
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CesiumComponent],
@@ -20,77 +23,78 @@ describe('CesiumServiceService', () => {
     fixture = TestBed.createComponent(CesiumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement as HTMLElement;
+    nativeElement = compiled.querySelector('.cesium-map');
+    testElement = { nativeElement };
+    service.initialCesium(testElement);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('Core/Cartesian3', function () {
-    it('construct with default values', function () {
-      const cartesian = new Cartesian4(380.0, 380.0, 38.0, 38.0);
-      expect(cartesian.x).toEqual(380.0);
-      expect(cartesian.y).toEqual(380.0);
-      expect(cartesian.z).toEqual(38.0);
-      expect(cartesian.w).toEqual(38.0);
-    });
+  it('should initial cesium', function () {
+    expect(service.viewer).toBeTruthy();
+    expect(service.scene.mode).toEqual(3);
   });
 
-  fit('should initial cesium', function () {
-    const compiled = fixture.nativeElement as HTMLElement;
-    const nativeElement = compiled.querySelector('.cesium-map');
-    const testElement: ElementRef = { nativeElement };
-    const insantiateSpy = spyOn(service, 'initialCesium');
-    service.initialCesium(testElement);
+  it('should fly To Israel', function () {
+    const position = {
+      duration: 0,
+      destination: Cesium.Cartesian3.fromRadians(0.6, 0.55, 690000),
+    };
+
+    service.flyToIsrael();
     expect(service.viewer).toBeTruthy();
+    expect(service.viewer.camera.position.x).toEqual(position.destination.x);
+    expect(service.viewer.camera.position.y).toEqual(position.destination.y);
+    expect(service.viewer.camera.position.z).toEqual(position.destination.z);
+  });
 
-    expect(
-      service.viewer.imageryLayers.get(0).imageryProvider.requestImage.prototype
-    ).toBeTruthy();
+  it('should add entity to map', function () {
+    const shop: Shop = {
+      id: '111',
+      name: 'shop1',
+      city: 'Ashdod',
+      address: 'Shderot Bnei Brit',
+      coordinates: {
+        x: 4463335.28810235,
+        y: 3085305.6733755213,
+        z: 3341393.8268000875,
+      },
+    };
 
-    // this.viewer = new Cesium.Viewer(el.nativeElement, {
-    //   imageryProvider: Cesium.createWorldImagery({
-    //     style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
-    //   }),
-    //   infoBox: false,
-    //   shouldAnimate: true,
-    //   baseLayerPicker: true,
-    //   selectionIndicator: false,
-    // });
+    const shop2 = {
+      id: '222',
+      name: 'shop2',
+      city: 'Beer Sheva',
+      address: 'Keren Hiesod',
+      coordinates: {
+        x: 4481753.635793454,
+        y: 3114942.21347764,
+        z: 3289185.0199353206,
+      },
+    };
 
-    //     x: 20037508.342789244 , y: 20037508.342789244
-    // _rectangleSouthwestInMeters
-    // :
-    // Cartesian2
-    // x:  -20037508.342789244,  y: -20037508.342789244
+    service.addEntityToMap(shop);
+    service.addEntityToMap(shop2);
+
+    expect(service.viewer.entities.values.length).toEqual(2);
+    expect(service.viewer.entities.getById('111')).toEqual(
+      service.viewer.entities.values[0]
+    );
+    const positionShop1 = service.viewer.entities
+      .getById('111')
+      ?.position?.getValue(new JulianDate());
+    const positionShop2 = service.viewer.entities
+      .getById('111')
+      ?.position?.getValue(new JulianDate());
+
+    expect(positionShop1?.x).toEqual(shop.coordinates?.x);
+    expect(positionShop1?.y).toEqual(shop.coordinates?.y);
+    expect(positionShop1?.z).toEqual(shop.coordinates?.z);
+    expect(positionShop2?.x).toEqual(shop2.coordinates?.x);
+    expect(positionShop2?.y).toEqual(shop2.coordinates?.y);
+    expect(positionShop2?.z).toEqual(shop2.coordinates?.z);
   });
 });
-
-/*
-
-    // east:  -1.2217304763960306
-    // north:  1.5707963267948966
-    // south: -0.3490658503988659
-    // west:  -1.6580627893946132
-var extent = Cesium.Rectangle.fromDegrees(380.0, 380.0, 38.0, 38.0);
-
-    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
-    Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
-
-    this.viewer = new Cesium.Viewer(el.nativeElement, {
-      sceneMode: Cesium.SceneMode.SCENE3D,
-      imageryProvider: Cesium.createWorldImagery({
-        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
-      }),
-      infoBox: false,
-      shouldAnimate: true,
-      baseLayerPicker: true,
-      selectionIndicator: false,
-    });
-
-    this.scene = this.viewer.scene;
-
-    if (!this.scene.pickPositionSupported) {
-      window.alert('This browser does not support pickPosition.');
-    }
-*/

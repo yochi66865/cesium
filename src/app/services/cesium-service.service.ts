@@ -39,14 +39,17 @@ export class CesiumService {
     if (!this.scene.pickPositionSupported) {
       window.alert('This browser does not support pickPosition.');
     }
+    this.flyToIsrael();
 
+    this.clickOnMap();
+  }
+
+  flyToIsrael = () => {
     this.viewer.camera.flyTo({
       duration: 0,
       destination: Cesium.Cartesian3.fromRadians(0.6, 0.55, 690000),
     });
-
-    this.clickOnMap();
-  }
+  };
 
   addEntityToMap(newEntity: Shop) {
     const { x, y, z } = newEntity.coordinates ?? {};
