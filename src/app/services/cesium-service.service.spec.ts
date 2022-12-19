@@ -87,7 +87,7 @@ describe('CesiumServiceService', () => {
       .getById('111')
       ?.position?.getValue(new JulianDate());
     const positionShop2 = service.viewer.entities
-      .getById('111')
+      .getById('222')
       ?.position?.getValue(new JulianDate());
 
     expect(positionShop1?.x).toEqual(shop.coordinates?.x);
