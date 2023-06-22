@@ -1,6 +1,6 @@
 import { ElementRef, Injectable } from '@angular/core';
-import * as Cesium from 'cesium';
 import { Shop } from '../model/shop.model';
+import { Viewer, Scene, Entity } from 'cesium';
 
 const CESIUM_TOKEN =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNDViODRjMi1jNDNmLTRiMjUtOWE3Ny01MTE1MGEzMTk2MjMiLCJpZCI6MTE2NDY2LCJpYXQiOjE2Njk3MjY3Mzh9.8gaTQPKhD9KvyBwPU0sM3zHrBBdYq9jHfdGlFN0Cpmw';
@@ -17,8 +17,8 @@ Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
   providedIn: 'root',
 })
 export class CesiumService {
-  viewer!: Cesium.Viewer;
-  scene!: Cesium.Scene;
+  viewer!: Viewer;
+  scene!: Scene;
 
   constructor() {}
 
@@ -96,7 +96,7 @@ export class CesiumService {
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   }
 
-  hoverOnEntity(entity: Cesium.Entity.ConstructorOptions) {
+  hoverOnEntity(entity: Entity.ConstructorOptions) {
     let handler;
     // If the mouse is over the billboard, change its scale and color
     handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas);
@@ -107,22 +107,27 @@ export class CesiumService {
       }
 
       if (Cesium.defined(pickedObject) && pickedObject.id === entity) {
-        entity.billboard.scale = new Cesium.ConstantProperty(1.0);
-        entity.billboard.color = new Cesium.ConstantProperty(
-          Cesium.Color.YELLOW
-        );
+        this.changeEntityColor(entity, 1.0, Cesium.Color.YELLOW);
         if (entity.label) {
           entity.label.show = true;
         }
       } else {
-        entity.billboard.scale = new Cesium.ConstantProperty(0.5);
-        entity.billboard.color = new Cesium.ConstantProperty(
-          Cesium.Color.BLACK
-        );
+        this.changeEntityColor(entity, 0.5, Cesium.Color.BLACK);
         if (entity.label) {
           entity.label.show = false;
         }
       }
     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+  }
+
+  changeEntityColor(
+    entity: Entity.ConstructorOptions,
+    scale: number,
+    color: any
+  ) {
+    if (entity.billboard) {
+      entity.billboard.scale = new Cesium.ConstantProperty(scale);
+      entity.billboard.color = new Cesium.ConstantProperty(color);
+    }
   }
 }
