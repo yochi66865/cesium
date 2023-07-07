@@ -107,12 +107,13 @@
                 "glob": "**/*",
                 "input": "node_modules/cesium/Build/Cesium",
                 "output": "/assets/cesium"
-              }
-            ],
-            "styles": [
-              "src/styles.less"
-            ],
-            "scripts": []
+               }
+             ],
+             "styles": [
+               "node_modules/cesium/Build/Cesium/Widgets/widgets.css",
+               "src/styles.less"
+             ],
+             "scripts": ["node_modules/cesium/Build/Cesium/Cesium.js"]
           }
         }
       }

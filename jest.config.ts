@@ -1,0 +1,9 @@
+const config = {
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  globals: {
+    Cesium: {},
+  },
+};
+
+export default config;
